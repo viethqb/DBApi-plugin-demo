@@ -45,7 +45,7 @@ public class RedisCachePlugin extends CachePlugin {
 
     @Override
     public void set(ApiConfig apiConfig, Map<String, Object> requestParams, Object data, String localPluginParam) {
-        // redis缓存时间
+        // redis caching time
         String expireTime = localPluginParam;
         super.logger.debug("set data to cache");
         Jedis jedis = null;
@@ -57,12 +57,12 @@ public class RedisCachePlugin extends CachePlugin {
                 hashKey += o.toString() + "-";
             }
             jedis.hset(key, hashKey, JSON.toJSONString(data));
-            // 设置过期时间，过期时间从插件参数传过来
+            // Set the expiration time. The expiration time is passed from the plug-in parameters.
             if (StringUtils.isNoneBlank(expireTime)) {
                 jedis.expire(key, Integer.parseInt(expireTime));
             }
         } catch (Exception e) {
-            super.logger.error("设置缓存失败", e);
+            super.logger.error("Setting cache failed", e);
         } finally {
             if (jedis != null) {
                 jedis.close();
@@ -101,7 +101,7 @@ public class RedisCachePlugin extends CachePlugin {
             List<JSONObject> list = JSON.parseArray(hget, JSONObject.class);
             return list;
         } catch (Exception e) {
-            super.logger.error("查询缓存失败", e);
+            super.logger.error("Query cache failed", e);
             return null;
         } finally {
             if (jedis != null) {
@@ -111,32 +111,32 @@ public class RedisCachePlugin extends CachePlugin {
     }
 
     /**
-     * 插件名称，用于在页面上显示，提示用户
+     * Plug-in name, used to display on the page to prompt the user
      *
      * @return
      */
     @Override
     public String getName() {
-        return "redis缓存插件";
+        return "RedisCachePlugin";
     }
 
     /**
-     * 插件功能描述，用于在页面上显示，提示用户
+     * Plug-in function description, used to display on the page to prompt the user
      *
      * @return
      */
     @Override
     public String getDescription() {
-        return "缓存到redis";
+        return "Cache to redis";
     }
 
     /**
-     * 插件参数描述，用于在页面上显示，提示用户
+     * Plug-in parameter description, used to display on the page and prompt the user
      *
      * @return
      */
     @Override
     public String getParamDescription() {
-        return "插件参数请填写redis缓存时效时间，如果不填写表示永久缓存";
+        return "Please fill in the redis cache aging time for the plug-in parameters. If not filled in, it means permanent caching.";
     }
 }

@@ -2,7 +2,7 @@ package com.gitee.freakchicken.demo.plugin;
 
 public class App {
     /**
-     * 测试redis连接
+     * Test redis connection
      * @param args
      */
     public static void main(String[] args) {

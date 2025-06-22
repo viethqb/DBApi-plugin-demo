@@ -11,7 +11,7 @@ public class AmisGlobalTransformPlugin extends GlobalTransformPlugin {
     }
 
     /**
-     * 返回AMIS框架指定的数据格式
+     * Returns the data format specified by the AMIS framework
      */
     @Override
     public Object transform(ResponseDto data, String params) {
@@ -31,16 +31,16 @@ public class AmisGlobalTransformPlugin extends GlobalTransformPlugin {
 
     @Override
     public String getName() {
-        return "AMIS格式转换插件";
+        return "AMIS format conversion plugin";
     }
 
     @Override
     public String getDescription() {
-        return "将数据格式转化成AMIS框架需要的格式：{\"msg\":\"xxx\",\"status\":0,\"data\":{\"key\":\"value\"}}";
+        return "Convert the data format into the format required by the AMIS framework: {\"msg\":\"xxx\",\"status\":0,\"data\":{\"key\":\"value\"}}";
     }
 
     @Override
     public String getParamDescription() {
-        return "不需要填参数";
+        return "No need to fill in parameters";
     }
 }

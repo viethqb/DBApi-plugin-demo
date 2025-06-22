@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 /**
- * md5字段加密插件
+ * md5 field encryption plugin
  */
 public class EncryptTransformerPlugin extends TransformPlugin {
 
@@ -18,9 +18,9 @@ public class EncryptTransformerPlugin extends TransformPlugin {
     }
 
     /**
-     * MD5加密
-     * @param data             执行器执行后返回的结果数据
-     * @param localPluginParam 插件的局部参数
+     * MD5 encryption
+     * @param data             Result data returned after execution of the executor
+     * @param localPluginParam Plugin local parameters
      * @return
      */
     @Override
@@ -39,13 +39,13 @@ public class EncryptTransformerPlugin extends TransformPlugin {
 
 
     /**
-     * 插件名称，用于在页面上显示，提示用户
+     * Plugin name, used to display on the page to prompt the user
      *
      * @return
      */
     @Override
     public String getName() {
-        return "字段加密插件";
+        return "Field encryption plugin";
     }
 
     /**
@@ -55,16 +55,16 @@ public class EncryptTransformerPlugin extends TransformPlugin {
      */
     @Override
     public String getDescription() {
-        return "对字段进行MD5加密";
+        return "MD5 encryption of fields";
     }
 
     /**
-     * 插件参数描述，用于在页面上显示，提示用户
+     * Plugin parameter description, used to display on the page and prompt the user
      *
      * @return
      */
     @Override
     public String getParamDescription() {
-        return "插件参数填写要加密的字段，多个用英文分号;隔开，如果不填写则不用给任何字段加密";
+        return "Fill in the fields to be encrypted in the plugin parameters. Use English semicolons to separate multiple fields. If you do not fill in the fields, you do not need to encrypt any fields.";
     }
 }
